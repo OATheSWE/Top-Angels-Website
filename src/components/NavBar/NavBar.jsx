@@ -8,8 +8,8 @@ import { styles } from "../../data";
 import { Link } from "expo-router";
 
 const navLinks = [
-  { text: "Staff", href: "/staff" },
-  { text: "Student", href: "/student" },
+  { text: "Top Angel", href: "/top-angel" },
+  { text: "Disbury College", href: "/disbury" },
 ];
 
 export default function NavBar() {
@@ -30,7 +30,7 @@ export default function NavBar() {
         </Group>
 
         <Group h="100%" gap={0} className="hidden md:flex">
-          {navLinks.slice(0, 3).map((link, index) => (
+          {navLinks.map((link, index) => (
             <Link
               key={index}
               href={`${link.href}`}
@@ -44,7 +44,7 @@ export default function NavBar() {
         <Burger
           opened={drawerOpened}
           onClick={toggleDrawer}
-          hiddenFrom="sm"
+          hiddenFrom={`sm`}
           size={23}
           color="white"
         />
@@ -64,7 +64,7 @@ export default function NavBar() {
           className="block mx-auto px-4"
           
         >
-          {navLinks.slice(0, 3).map((link, index) => (
+          {navLinks.map((link, index) => (
             <Link
               key={index}
               href={`${link.href}`}

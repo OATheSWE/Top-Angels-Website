@@ -15,7 +15,7 @@ import { ImageCollection } from "../../../assets";
 
 export default function Landing() {
   return (
-    <div className="relative font-sans pt-[80px] min-h-full flex justify-center items-center">
+    <div className="relative font-sans pt-[80px] min-h-screen flex justify-center items-center ">
       {/* Background image */}
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center"

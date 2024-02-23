@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Paper,
   TextInput,
@@ -14,16 +15,70 @@ import {
 import classes from "./student-auth.module.css";
 import { upperFirst, useToggle } from "@mantine/hooks";
 import { ImageCollection } from "../../../assets";
-import { useForm } from "@mantine/form";
+import axios from "axios";
 
 export default function StudentAuth(props: PaperProps) {
   const [type, toggle] = useToggle(["register", "login"]);
-  const form = useForm({
-    initialValues: {
-      name: "",
-      
-    }
+  const [formData, setFormData] = useState({
+    name: "",
+    class: "",
+    arm: "",
   });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSelectChange = (name: string, value: any) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // console.log(JSON.stringify(formData));
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("api/student", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if(response.ok) {
+        alert(data.message);
+      } else {
+        alert(data.error)
+      }
+
+      setFormData({
+        name: "",
+        class: "",
+        arm: "",
+      });
+    } catch (error: any) {
+      // Handle error (e.g., display error message)
+      console.log("Oops:", error);
+      alert("Something Happened");
+    }
+  };
+
+  // async function fetchHello() {
+  //   const response = await fetch("/api/student", {
+  //     method: 'POST',
+  //     body: JSON.stringify({hello: "world"})
+  //   });
+  //   // const data = await response;
+  //   // alert('Its ' + data.blob);
+  // }
 
   return (
     <div
@@ -41,8 +96,16 @@ export default function StudentAuth(props: PaperProps) {
           {upperFirst(type)} to take your mid-term tests
         </Title>
 
-        <form onSubmit={form.onSubmit(() => {})}>
-          <TextInput label="Full name" placeholder="Jeffrey Benson" size="md" />
+        <form onSubmit={handleSubmit}>
+          <TextInput
+            label="Full name"
+            placeholder="Jeffrey Benson"
+            size="md"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+          />
 
           {type === "register" && (
             <Select
@@ -52,6 +115,10 @@ export default function StudentAuth(props: PaperProps) {
               mt="md"
               size="md"
               clearable
+              name="class"
+              value={formData.class}
+              onChange={(value) => handleSelectChange("class", value)} // Pass name and value to handleSelectChange
+              required
             />
           )}
 
@@ -63,6 +130,10 @@ export default function StudentAuth(props: PaperProps) {
               mt="md"
               size="md"
               clearable
+              name="arm"
+              value={formData.arm}
+              onChange={(value) => handleSelectChange("arm", value)} // Pass name and value to handleSelectChange
+              required
             />
           )}
 

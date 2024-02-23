@@ -1,5 +1,5 @@
 import React from "react";
-import { Landing } from "../src/views";
+import { Landing, ReportSheet } from "../src/views";
 import { NavBar } from "../src/components";
 
 const home = () => {
