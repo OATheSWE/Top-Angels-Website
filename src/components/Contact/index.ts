@@ -1,0 +1,1 @@
+export { default as LandingContact } from "./Landing-Contact"; 

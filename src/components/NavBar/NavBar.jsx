@@ -1,44 +1,109 @@
-import React from "react";
-import { Group, Box, Burger, Drawer, ScrollArea, Text } from "@mantine/core";
+import React, { useEffect, useState } from "react";
+import {
+  Group,
+  Box,
+  Burger,
+  Drawer,
+  ScrollArea,
+  Image,
+  Menu,
+  Collapse,
+} from "@mantine/core";
 import classes from "./NavBar.module.css";
 import "./Navbar.css";
 import { useDisclosure } from "@mantine/hooks";
-import Btn from "../button";
-import { styles } from "../../data";
+import { navLinks, styles } from "../../data";
 import { Link } from "expo-router";
-
-const navLinks = [
-  { text: "Top Angel", href: "/top-angel" },
-  { text: "Disbury College", href: "/disbury" },
-];
+import { ImageCollection } from "../../../assets";
 
 export default function NavBar() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
+  const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
+  const [imageSrc, setImageSrc] = useState(ImageCollection.topAngelLogo);
+  const [spinning, setSpinning] = useState(false);
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSpinning(true);
+      setTimeout(() => {
+        setSpinning(false);
+        setImageSrc((prevSrc) =>
+          prevSrc === ImageCollection.topAngelLogo
+            ? ImageCollection.disburyLogo
+            : ImageCollection.topAngelLogo
+        );
+      }, 2000);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
+  const items = navLinks.map((link, index) => {
+    const menuItems = link.links?.map((item, index) => (
+      <Menu.Item key={index}>
+        <Link
+          href={`${item.href}`}
+          className={`font-sans transitin duration-300 hover:text-primary`}
+        >
+          {item.text}
+        </Link>
+      </Menu.Item>
+    ));
+
+    if (menuItems) {
+      return (
+        <Menu
+          key={link.text}
+          trigger="hover"
+          transitionProps={{ exitDuration: 0 }}
+          withinPortal
+        >
+          <Menu.Target>
+            <a
+              key={index}
+              className={`font-sans ${classes.link} relative group cursor-pointer`}
+            >
+              {link.text}
+              <span className="absolute h-0.5 w-0 bg-primary bottom-[1px] left-1/2 transition-all ease-out duration-300 group-hover:w-full group-hover:left-0"></span>
+            </a>
+          </Menu.Target>
+          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
+        </Menu>
+      );
+    }
+
+    return (
+      <Link
+        key={index}
+        href={`${link.href}`}
+        className={`font-sans ${classes.link} relative group`}
+      >
+        {link.text}
+        <span className="absolute h-0.5 w-0 bg-primary bottom-[1px] left-1/2 transition-all ease-out duration-300 group-hover:w-full group-hover:left-0"></span>
+      </Link>
+    );
+  });
 
   return (
-    <Box className="fixed w-full z-[99999] shadow-xl ">
+    <Box className="">
       <header
-        className={`flex justify-between items-center bg-blue-700 md:px-8 font-sans ${classes.header} ${styles.body}`}
+        className={`flex justify-between items-center  font-sans ${classes.header}`}
       >
         <Group h="100%" className="flex items-center">
           <Link href="/">
-            <Text className="font-extrabold text-primary text-[25px] max-[480px]:text-[21px] font-sans text-white">
-              Top Angel/Disbury
-            </Text>
+          <Image
+          src={imageSrc}
+          alt="School Logo"
+          className={`w-[60px] ${spinning ? 'animate-spin' : ''}`}
+        />
           </Link>
         </Group>
 
         <Group h="100%" gap={0} className="hidden md:flex">
-          {navLinks.map((link, index) => (
-            <Link
-              key={index}
-              href={`${link.href}`}
-              className={`font-sans ${classes.link}`}
-            >
-              {link.text}
-            </Link>
-          ))}
+          {items}
         </Group>
 
         <Burger
@@ -53,7 +118,8 @@ export default function NavBar() {
       <Drawer
         opened={drawerOpened}
         onClose={closeDrawer}
-        size="100%"
+        size="70%"
+        position="right"
         hiddenFrom="sm"
         zIndex={1000000}
         className="font-sans text-black p-0 m-0"
@@ -61,18 +127,47 @@ export default function NavBar() {
         <ScrollArea
           h={`calc(100vh - 80px)`}
           mx="-md"
-          className="block mx-auto px-4"
-          
+          className="px-10"
+          bg={`#000000B3`}
         >
-          {navLinks.map((link, index) => (
+          {/* {items} */}
+          {navLinks.slice(0, 4).map((link, index) => (
             <Link
               key={index}
               href={`${link.href}`}
-              className={`font-sans text-black ${classes.link}`}
+              className={`font-sans text-white ${classes.link} relative group`}
               onPress={toggleDrawer}
             >
               {link.text}
+              <span className="absolute h-0.5 w-0 bg-primary bottom-[1px] left-1/2 transition-all ease-out duration-300 group-hover:w-full group-hover:left-0"></span>
             </Link>
+          ))}
+          {navLinks.slice(4).map((link, index) => (
+            <a
+              key={index}
+              className={`font-sans text-white ${classes.link} cursor-pointer relative group`}
+              onClick={toggleLinks}
+            >
+              {link.text}
+              <span className="absolute h-0.5 w-0 bg-primary bottom-[1px] left-1/2 transition-all ease-out duration-300 group-hover:w-full group-hover:left-0"></span>
+            </a>
+          ))}
+          {navLinks.map((link, index) => (
+            <React.Fragment key={index}>
+              {link.links ? (
+                <Collapse in={linksOpened} className="flex flex-col justify-center transition items-center">
+                  {link.links.map((sublink, subIndex) => (
+                    <Link
+                      key={subIndex}
+                      href={sublink.href}
+                      className={`font-sans transition text-white duration-300 hover:text-primary mt-2`}
+                    >
+                      {sublink.text}
+                    </Link>
+                  ))}
+                </Collapse>
+              ) : null}
+            </React.Fragment>
           ))}
         </ScrollArea>
       </Drawer>
