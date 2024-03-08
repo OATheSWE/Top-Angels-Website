@@ -5,6 +5,10 @@ export * from './staff';
 export * from './student';
 export * from './landing';
 export * from './report-sheet';
+export * from './About Page';
+export * from './Gallery Page';
+export * from './Admission Page';
+export * from './Contact Page';
 
 
 

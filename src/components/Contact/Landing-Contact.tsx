@@ -8,7 +8,7 @@ import { useSpring, animated } from "@react-spring/web";
 const LandingContact = () => {
   const [ref, inView] = useInView({
     threshold: 0.4,
-    
+    triggerOnce: true,
   });
 
   // Animation for the right column (coming from the right)

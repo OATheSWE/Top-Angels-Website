@@ -1,6 +1,6 @@
 import { Box } from "@mantine/core";
 /// @ts-ignore
-import { About, Anthem, Apply, Header, LandingContact, Testimonial, Video } from "../../components";
+import { About, Anthem, Apply, Footer, Header, LandingContact, Testimonial, Video } from "../../components";
 
 export default function Landing() {
   
@@ -18,6 +18,7 @@ export default function Landing() {
         <Anthem />
         <Testimonial />
         <LandingContact />
+        <Footer />
       </div>
     </div>
   );
