@@ -32,7 +32,7 @@ export default function Anthem() {
       {/* Background image */}
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center"
-        style={{ backgroundImage: `url(${ImageCollection.home})` }}
+        style={{ backgroundImage: `url(${ImageCollection.AnthemBanner})` }}
       ></div>
       {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-70"></div>
@@ -47,11 +47,29 @@ export default function Anthem() {
             </Title>
 
             <Text className="my-2 leading-7 text-white">
-              At e-Byte Africa, we're digital architects crafting innovative
-              solutions that redefine the digital landscape. From helping
-              businesses navigate the digital terrain and providing existing
-              teams with the perfect fit for seamless project execution to
-              building and maintaining projects, we bring a fresh perspective.
+              ALL hail Top Angel our noble school from all over the country,
+              <br />
+              we came with the spirit, we plant the tree of purity in our life
+              <br />
+              To our country Nigeria
+              <br />
+              we pledge our honour
+              <br />
+              to academic excellence
+              <br />
+              we pledge our honour
+              <br />
+              To Christ who brings salvation
+              <br />
+              we pledge our honour
+              <br />
+              to general good behaviours
+              <br />
+              we pledge our honour
+              <br />
+              All these we promise our noble
+              <br />
+              Top Angel
             </Text>
           </animated.div>
         </Grid.Col>
@@ -65,11 +83,24 @@ export default function Anthem() {
             </Title>
 
             <Text className="my-2 leading-7 text-white">
-              At e-Byte Africa, we're digital architects crafting innovative
-              solutions that redefine the digital landscape. From helping
-              businesses navigate the digital terrain and providing existing
-              teams with the perfect fit for seamless project execution to
-              building and maintaining projects, we bring a fresh perspective.
+              We are royal students of Disbury College,
+              <br />
+              We are spirited over all - <br />
+              So that we may reign over all we do,
+              <br />
+              So that we may reign forever-ever-ever,
+              <br />
+              Disbury College the sitter dol of learning,
+              <br />
+              we are here to do our best.
+              <br />
+              We are standing for success with more to our best,
+              <br />
+              success! disbury,
+              <br />
+              success! disbury,
+              <br />
+              Disbury College
             </Text>
           </animated.div>
         </Grid.Col>

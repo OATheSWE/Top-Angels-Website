@@ -2,17 +2,17 @@ export const footer = [
     {
       title: "Quick Links",
       links: [
-        { label: "Gallery", link: "#" },
-        { label: "About Us", link: "#" },
-        { label: "Admission", link: "#" },
-        { label: "Contact Us", link: "#" },
+        { label: "Gallery", link: "/gallery" },
+        { label: "About Us", link: "/about" },
+        { label: "Admission", link: "/admission" },
+        { label: "Contact Us", link: "/contact" },
       ],
     },
     {
       title: "Resources",
       links: [
-        { label: "Student Portal", link: "#" },
-        { label: "Staff Portal", link: "#" },
+        { label: "Student Portal", link: "/student" },
+        { label: "Staff Portal", link: "/staff" },
       ],
     },
   ];

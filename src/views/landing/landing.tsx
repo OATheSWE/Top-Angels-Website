@@ -11,7 +11,7 @@ export default function Landing() {
       <div className="fixed z-10">
         <Header />
       </div>
-      <div className="sticky z-[9999] translate-y-[80%] bg-white">
+      <div className="sticky z-[9999] translate-y-[40%] bg-white">
         <Video />
         <About />
         <Apply />

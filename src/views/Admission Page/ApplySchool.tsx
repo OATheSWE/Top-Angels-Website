@@ -28,20 +28,21 @@ const ApplySchool = () => {
   });
   return (
     <section ref={ref} className={`w-full py-10 ${styles.body} bg-accent`}>
-      <Title className={``} order={2}>
-          How To Apply
-        </Title>
+      <Title className={`max-sm:[text-[30px]`} order={2}>
+        Embracing Every Child’s Potential
+      </Title>
       <Grid gutter={90} className={`font-sans mt-12`}>
         <Grid.Col span={{ base: 12, md: 6 }}>
           <animated.div style={rightColAnimation} className={``}>
             <Text className="">
-              At e-Byte Africa, we were founded on a shared passion for tech and
-              a commitment to innovation. Our mission is to reshape the digital
-              landscape by empowering businesses with cutting-edge web
-              development, AI solutions, and tech consulting. In the coming
-              year, we aspire to deepen our impact, setting new standards of
-              excellence in the tech sphere. Join us on this transformative
-              journey. 🌐💻
+              At Top Angel Schools /Disbury College, we see each child as a
+              unique individual with boundless potential. Our admissions process
+              is designed to understand and embrace the distinct talents and
+              aspirations of every student. We delve beyond the surface to
+              discover the innate strengths that make each child special. Our
+              principal’s philosophy is rooted in the belief that with the right
+              guidance, every child can excel in their chosen path, becoming the
+              best in the world at their craft.
             </Text>
           </animated.div>
         </Grid.Col>
@@ -51,13 +52,15 @@ const ApplySchool = () => {
             className="flex items-stretch max-lg:mx-auto"
           >
             <Text className="">
-              At e-Byte Africa, we were founded on a shared passion for tech and
-              a commitment to innovation. Our mission is to reshape the digital
-              landscape by empowering businesses with cutting-edge web
-              development, AI solutions, and tech consulting. In the coming
-              year, we aspire to deepen our impact, setting new standards of
-              excellence in the tech sphere. Join us on this transformative
-              journey. 🌐💻
+              We believe that a child’s educational journey is a partnership
+              between the school and the family. That’s why we take the time to
+              know the parents and their expectations. This collaborative
+              approach allows us to tailor our teaching methods to each child’s
+              needs, ensuring that they receive the most nurturing and effective
+              education possible. Our admission process reflects this belief,
+              focusing on the child’s psychological well-being and logical
+              abilities, while also considering the parents’ insights during the
+              interview.
             </Text>
           </animated.div>
         </Grid.Col>

@@ -90,15 +90,7 @@ export default function Contact() {
   };
 
   return (
-    <Paper ref={ref} className={`w-full py-10 relative ${styles.body}`}>
-      {/* Background image */}
-      <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center"
-        style={{ backgroundImage: `url(${ImageCollection.banner})` }}
-      ></div>
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-70"></div>
-      {/* <Heading title={`Get in Touch`} description={`Hey! Lets Talk`} /> */}
+    <Paper ref={ref} className={`w-full py-10 relative mt-10 ${styles.body}`}>
       <div className={classes.wrapper}>
         <animated.div style={leftColAnimation}>
           <div className={classes.contacts}>
@@ -120,6 +112,7 @@ export default function Contact() {
                   name="name"
                   {...form.getInputProps("name")}
                   required
+                  className="shadow-2xl"
                 />
                 <TextInput
                   label="Your email"
@@ -127,6 +120,7 @@ export default function Contact() {
                   name="email"
                   required
                   {...form.getInputProps("email")}
+                  className="shadow-2xl"
                 />
               </SimpleGrid>
 
@@ -137,6 +131,7 @@ export default function Contact() {
                 name="subject"
                 required
                 {...form.getInputProps("subject")}
+                className="shadow-2xl"
               />
 
               <Textarea
@@ -146,13 +141,14 @@ export default function Contact() {
                 placeholder="Please include all relevant information"
                 minRows={3}
                 {...form.getInputProps("message")}
+                className="shadow-2xl"
               />
 
               <Group justify="center">
                 <input
                   type="submit"
                   value="Send Now"
-                  className="bg-primary rounded-md hover:bg-secondary mt-[20px] px-4 py-2.5 text-[16px] transition duration-300 text-white cursor-pointer"
+                  className="bg-primary rounded-md hover:bg-secondary mt-[20px] px-4 py-2.5 text-[16px] transition duration-300 text-white cursor-pointer shadow-2xl"
                 />
               </Group>
             </div>

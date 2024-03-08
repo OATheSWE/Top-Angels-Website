@@ -4,7 +4,7 @@ import { Contact, MapContainer } from "../../components";
 const ContactPage = () => {
   return (
     <>
-      <MapContainer />
+      {/* <MapContainer /> */}
       <Contact />
     </>
   );

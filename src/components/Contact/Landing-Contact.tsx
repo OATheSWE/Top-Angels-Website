@@ -4,6 +4,7 @@ import { styles } from "../../data";
 import { ImageCollection } from "../../../assets";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "@react-spring/web";
+import { router } from "expo-router";
 
 const LandingContact = () => {
   const [ref, inView] = useInView({
@@ -36,11 +37,12 @@ const LandingContact = () => {
             mt="md"
             mb={40}
           >
-            Enroll For Our Various Courses Online From Anywhere In The World
+            Ready to transform your child's future? Contact us now and take the first step towards a world-class education.
           </Title>
           <Button
             size="lg"
             className="group relative border-2 border-white hover:bg-primary hover:border-primary transition duration-300 px-14 overflow-visible"
+            onClick={() => router.replace("/contact")}
           >
             <span className="relative font-normal">CONTACT US</span>
             <span className="absolute top-1/2 w-8 h-0.5 bg-white group-hover:bg-primary left-[95%] transition duration-300"></span>

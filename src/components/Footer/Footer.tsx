@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { IconImports, ImageCollection } from "../../../assets";
 import { footer, styles } from "../../data";
 
-  
 export default function Footer() {
   const groups = footer.map((group) => {
     const links = group.links.map((link, index) => (
@@ -68,13 +67,13 @@ export default function Footer() {
             <Text> Top Angels/Disbury </Text>
           </div>
           <Text size="xs" c="dimmed" className={classes.description}>
-            Build fully functional accessible web applications faster than ever
+            Empowering minds, nurturing hearts, and shaping futures.
           </Text>
           <Text size="xs" className={classes.description}>
-            +2349016111314
+            +234 907 820 4521
           </Text>
           <Text size="xs" className={classes.description}>
-            osborneosas12@gmail.com
+            info@topangels-disbury.com.ng
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
@@ -95,6 +94,9 @@ export default function Footer() {
             color="gray"
             variant="subtle"
             className="transition duration-300 hover:bg-primary rounded-full"
+            component="a"
+            href="https://www.facebook.com/DisburyCollege/"
+            target="_blank"
           >
             <IconImports.Facebook size={24} color="#000" />
           </ActionIcon>
@@ -103,6 +105,9 @@ export default function Footer() {
             color="gray"
             variant="subtle"
             className="transition duration-300 hover:bg-primary rounded-full"
+            component="a"
+            href="https://www.linkedin.com/in/top-angel-schools-06780020a/"
+            target="_blank"
           >
             <IconImports.Linkedin size={24} color="#000" />
           </ActionIcon>
@@ -111,6 +116,9 @@ export default function Footer() {
             color="gray"
             variant="subtle"
             className="transition duration-300 hover:bg-primary rounded-full"
+            component="a"
+            href="https://www.instagram.com/topangelschools/"
+            target="_blank"
           >
             <IconImports.Instagram size={24} color="black" />
           </ActionIcon>

@@ -8,7 +8,6 @@ import { useState } from "react";
 import { ImageCollection } from "../../../assets";
 
 export default function AboutPage() {
-
   const [ref, inView] = useInView({
     threshold: 0.4,
     triggerOnce: true,
@@ -32,31 +31,26 @@ export default function AboutPage() {
 
   return (
     <section ref={ref} className={`w-full py-10 ${styles.body} bg-accent`}>
-      <Grid gutter={90} className={`font-sans mt-12`}> 
+      <Grid gutter={90} className={`font-sans mt-12`}>
         <Grid.Col span={{ base: 12, md: 6.7 }}>
           <animated.div style={rightColAnimation} className={``}>
             <Title className={classes.title} order={2}>
-              Unleashing Digital Innovation: The e-Byte Africa Story
+              A Tradition of Excellence
             </Title>
 
             <Text className="my-2">
-              At e-Byte Africa, we were founded on a shared passion for tech and
-              a commitment to innovation. Our mission is to reshape the digital
-              landscape by empowering businesses with cutting-edge web
-              development, AI solutions, and tech consulting. In the coming
-              year, we aspire to deepen our impact, setting new standards of
-              excellence in the tech sphere. Join us on this transformative
-              journey. 🌐💻
+              At Top Angel Schools, we’re committed to fostering a culture of
+              excellence where every student’s potential is realized and
+              cherished. Our innovative approach to education seamlessly
+              integrates academic rigor with moral and social development,
+              ensuring that our students are not only well-prepared
+              intellectually but also equipped with the character and ethics to
+              lead and excel in all aspects of life. Join us in this educational
+              journey where tradition meets innovation, and every child’s future
+              shines bright.
             </Text>
 
-            <Button
-              size="lg"
-              className="group relative text-black border-2 border-primary hover:bg-primary hover:text-white transition duration-300 px-14 overflow-visible"
-            >
-              <span className="relative font-normal">EXPLORE NOW</span>
-              <span className="absolute top-1/2 w-8 h-0.5  bg-primary left-[95%] transition duration-300"></span>
-              <span className="absolute top-1/2 w-8 h-0.5 bg-primary right-[95%] transition duration-300"></span>
-            </Button>
+            
           </animated.div>
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 5.3 }} className="flex">
@@ -65,7 +59,7 @@ export default function AboutPage() {
             className="flex items-stretch max-lg:mx-auto"
           >
             <Image
-              src={ImageCollection.home}
+              src={ImageCollection.aboutImage}
               className={`w-full object-cover object-top rounded-xl`}
               alt="About Image"
             />
@@ -79,17 +73,21 @@ export default function AboutPage() {
         >
           <animated.div style={rightColAnimation} className={``}>
             <Title className={`${classes.title} text-center`} order={2}>
-              Unleashing Digital Innovation: The e-Byte Africa Story
+              Top Angel Schools/Disbury College: Where Excellence Meets
+              Innovation
             </Title>
 
             <Text className="my-2 text-center">
-              At e-Byte Africa, we were founded on a shared passion for tech and
-              a commitment to innovation. Our mission is to reshape the digital
-              landscape by empowering businesses with cutting-edge web
-              development, AI solutions, and tech consulting. In the coming
-              year, we aspire to deepen our impact, setting new standards of
-              excellence in the tech sphere. Join us on this transformative
-              journey. 🌐💻
+              At Top Angel Schools, we’re not just teaching; we’re igniting a
+              passion for learning and a commitment to excellence. Our story is
+              one of transformation, where every child’s potential is recognized
+              and nurtured in a community that values innovation, integrity, and
+              inclusivity. <br /><br />From our state-of-the-art facilities to our holistic
+              approach to education, we ensure that each student is prepared not
+              only academically but also morally and socially to thrive in an
+              ever-changing world. Our educators are mentors, our classrooms are
+              sanctuaries of creativity, and our legacy is the success of every
+              student who walks through our doors.
             </Text>
           </animated.div>
         </Grid.Col>

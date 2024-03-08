@@ -14,7 +14,7 @@ interface Testimonial {
 export default function Testimonial() {
   return (
     <Carousel
-      height={250}
+      height={300}
       slideSize={{ base: '100%', sm: '50%' }}
       slideGap="md"
       loop

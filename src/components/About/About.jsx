@@ -30,7 +30,7 @@ export default function About() {
   return (
     <section ref={ref} className={`${styles.body} pt-12`}>
       <Grid gutter={90} className={`font-sans`}>
-        <Grid.Col span={{ base: 12, sm: 5.3 }} className="flex" m={0}>
+        <Grid.Col span={{ base: 12, sm: 6 }} className="flex" m={0} py={0}>
           <animated.div
             style={leftColAnimation}
             className="flex flex-col items-stretch max-lg:mx-auto"
@@ -46,14 +46,17 @@ export default function About() {
             />
           </animated.div>
         </Grid.Col>
-        <Grid.Col span={{ base: 12, sm: 6.7 }} className="flex justify-center items-center bg-secondary rounded-lg">
+        <Grid.Col
+          span={{ base: 11.7, sm: 6 }}
+          className="flex justify-center items-center bg-secondary rounded-lg"
+        >
           <animated.div style={rightColAnimation} className={``}>
             <Text className="my-2">
-              At e-Byte Africa, we're digital architects crafting innovative
-              solutions that redefine the digital landscape. From helping
-              businesses navigate the digital terrain and providing existing
-              teams with the perfect fit for seamless project execution to
-              building and maintaining projects, we bring a fresh perspective.
+              At Top Angel / Disbury, we believe in the power of opportunity and
+              the strength of moral values. Our dedicated team works tirelessly
+              to ensure every child is equipped with the knowledge and ethics to
+              thrive in society. Join us in laying a solid foundation for a
+              brighter future.
             </Text>
           </animated.div>
         </Grid.Col>

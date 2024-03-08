@@ -24,25 +24,24 @@ export default function Apply() {
   return (
     <section ref={ref} className={`${styles.body} mt-20`}>
       <Grid gutter={90} className={`font-sans`}>
-        <Grid.Col span={{ base: 9 }} className="flex" m={0}>
-          <animated.div
-            style={leftColAnimation}
-            className="flex flex-col items-stretch max-lg:mx-auto"
-          >
+        <Grid.Col span={{ base: 9 }} className="flex">
+          <animated.div style={leftColAnimation} className="">
             <Title className={classes.title} order={2} mb={10}>
               Applications are now open
             </Title>
 
             <Text className="my-2">
-              Applicants who seek admission into Top Angel Schools/ Disbury College
-              School are required to take a competitive entrance examination.
+              Unlock the door to a world of opportunities at Top Angel / Disbury.
+              Applications are now open – embark on a personalized educational
+              journey that recognizes and nurtures each student's unique
+              strengths and aspirations.
             </Text>
 
             <div className="">
               <Btn
                 text="Apply"
                 style={`rounded-md bord h-[50px] bg-primary justify-center text-[20px] max-lg:text-[17px] font-medium px-8 text-white hover:bg-transparent mt-5 border-2 border-primary hover:text-black`}
-                click={() => router.replace('/admission')}
+                click={() => router.replace("/admission")}
               />
             </div>
           </animated.div>

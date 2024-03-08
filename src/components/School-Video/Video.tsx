@@ -23,8 +23,8 @@ export default function SchoolVideo() {
     <animated.div ref={ref} style={leftColAnimation} className="w-full md:px-12">
       <video
         src={ImageCollection.schoolVideo}
-        controls
         className="w-full mb-10"
+        controls
       />
     </animated.div>
   );
