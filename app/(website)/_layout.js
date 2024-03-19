@@ -5,11 +5,11 @@ import { Footer, SubHeader } from "../../src/components";
 
 const App = () => {
   return (
-    <>
+    <div className="">
       <SubHeader />
       <Slot />
       <Footer />
-    </>
+    </div>
   );
 };
 

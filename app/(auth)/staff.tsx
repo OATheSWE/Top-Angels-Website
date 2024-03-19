@@ -1,11 +1,11 @@
-// import React from "react";
-// import { StaffAuth } from "../../src/views";
+import React from "react";
+import { StaffAuth } from "../../src/views";
 
 
-// const home = () => {
-//   return (
-//     <StaffAuth />
-//   );
-// };
+const staff = () => {
+  return (
+    <StaffAuth />
+  );
+};
 
-// export default home;
+export default staff;

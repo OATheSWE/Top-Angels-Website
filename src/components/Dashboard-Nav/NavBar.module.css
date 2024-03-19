@@ -21,7 +21,7 @@
   }
 
   @mixin hover {
-    color: #868ED6;
+    color: #1D4ED8;
     transition: 200ms ease-in-out;
     
 }

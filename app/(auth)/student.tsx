@@ -1,11 +1,11 @@
-// import React from "react";
-// import { StudentAuth } from "../../src/views";
+import React from "react";
+import { StudentAuth } from "../../src/views";
 
 
-// const home = () => {
-//   return (
-//     <StudentAuth />
-//   );
-// };
+const home = () => {
+  return (
+    <StudentAuth />
+  );
+};
 
-// export default home;
+export default home;

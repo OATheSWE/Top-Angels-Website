@@ -10,6 +10,8 @@ export * from './Anthems';
 export * from './Testimonial';
 export * from './Contact';
 export * from './Footer';
+export * from './Footer';
+export * from './Upload Modal';
 export {default as Btn} from './button';
 export {default as Popup} from './Popup';
 export {default as ExamCard} from './Exam-Card';

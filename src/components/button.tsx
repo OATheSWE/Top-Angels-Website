@@ -15,7 +15,7 @@ const Btn: FunctionComponent<BtnProps> = ({ click, text, style, icon}) => {
   return (
       <Button
         className={`border-0 transition duration-300 whitespace-pre-wrap ${style}`}
-        leftSection={icon}
+        rightSection={icon}
         onClick={click}
       >
         {text}

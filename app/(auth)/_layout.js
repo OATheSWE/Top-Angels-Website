@@ -1,13 +1,15 @@
 import { Slot } from "expo-router";
-import { NavBar } from "../../src/components";
+import { DashBoardNav, NavBar, NavBar2 } from "../../src/components";
 
 const App = () => {
   return (
-    <div>
-      <NavBar />
+    <div className="">
+      <NavBar2 />
+      {/* <DashBoardNav /> */}
       <Slot />
     </div>
   );
 };
 
 export default App;
+

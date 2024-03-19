@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Paper,
   TextInput,
@@ -8,19 +9,26 @@ import {
   PasswordInput,
   PaperProps,
   Group,
+  Select,
 } from "@mantine/core";
 /// @ts-ignore
 import classes from "./staff-auth.module.css";
 import { upperFirst, useToggle } from "@mantine/hooks";
 import { ImageCollection } from "../../../assets";
-import { useState } from "react";
+import axios from "axios";
+import { router } from "expo-router";
+import CryptoJS from 'crypto-js'
 
 export default function StaffAuth(props: PaperProps) {
   const [type, toggle] = useToggle(["register", "login"]);
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     password: "",
   });
+
+  const secretKey = "21d1f43eee6a5780499e81575231952e7dd1f88274f72f6d0f78ffe213944aa9";
+
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -34,28 +42,53 @@ export default function StaffAuth(props: PaperProps) {
     e.preventDefault();
 
     try {
-      const response = await fetch("api/staff", {
-        method: "POST",
-        body: JSON.stringify(formData),
-      });
+      if (type === "register") {
+        const response = await axios.post(
+          "http://localhost:8000/signupStaff.php",
+          formData,
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+          }
+        );
+        if (response.data.success) {
+          alert("Sign Up Successful");
+          setFormData({
+            name: "",
+            email: "",
+            password: "",
+          });
+        }
+      } else if (type === "login") {
+        const response = await axios.post(
+          "http://localhost:8000/loginStaff.php",
+          formData,
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+          }
+        );
+        if (response.data.success) {
+          // Retrieve unique_id
+          const uniqueId = response.data.unique_id;
 
-      const data = await response.json();
+          // Encrypt the unique_id
+          const encryptedUniqueId = CryptoJS.AES.encrypt(uniqueId, secretKey).toString()
 
-
-      if (response.ok) {
-        alert(data.message);
-      } else {
-        alert(data.error);
+          // Store encrypted unique_id in local storage
+          localStorage.setItem("www", encryptedUniqueId);
+          
+          // Prompt the user to close the login window
+          alert("You are now logged in");
+          router.replace("/upload-assessment");
+        } else {
+          alert("Incorrect Name or Password");
+        }
       }
-
-      setFormData({
-        name: "",
-        password: "",
-      });
-    } catch (error: any) {
-      // Handle error (e.g., display error message)
-      console.log("Oops:", error);
-      alert("Something Happened");
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
 
@@ -72,30 +105,43 @@ export default function StaffAuth(props: PaperProps) {
           mt="md"
           mb={50}
         >
-          {upperFirst(type)} to set your mid-term tests
+          {upperFirst(type)} to get access to your dashboard
         </Title>
 
         <form onSubmit={handleSubmit}>
+          <TextInput
+            label="Full name"
+            placeholder="Jeffrey Benson"
+            size="md"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+          />
+
+
           {type === "register" && (
             <TextInput
-              label="Full name"
-              placeholder="Jeffrey Benson"
+              label="Email"
+              placeholder="example@gmail.com"
               size="md"
-              name="name"
-              value={formData.name}
+              name="email"
+              value={formData.email}
               onChange={handleInputChange}
+              required
+              mt={`md`}
             />
           )}
 
           <PasswordInput
             label="Password"
-            placeholder="Enter 6 digit password"
-            mt="md"
+            placeholder="1233456ax"
             size="md"
-            maxLength={6}
             name="password"
             value={formData.password}
             onChange={handleInputChange}
+            required
+            mt={`md`}
           />
 
           <Group justify="space-between" mt={`4rem`}>
@@ -111,13 +157,12 @@ export default function StaffAuth(props: PaperProps) {
                 : "Don't have an account? Register"}
             </Anchor>
 
-            <Button
+            <button
               type="submit"
-              size="md"
-              className="bg-blue-700 rounded-lg hover:bg-gray-700 transition duration-300"
+              className="bg-blue-700 rounded-lg hover:bg-gray-700 transition duration-300 p-3 text-white"
             >
               {upperFirst(type)}
-            </Button>
+            </button>
           </Group>
         </form>
       </Paper>

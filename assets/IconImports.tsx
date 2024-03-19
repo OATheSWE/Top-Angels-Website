@@ -9,6 +9,7 @@ const IconImports = {
   Email: (props: any) => <Entypo name="email" {...props} />,
   Phone: (props: any) => <Feather name="phone" {...props} />,
   Sun: (props: any) => <Fontisto name="day-sunny" {...props} />,
+  Plus: (props: any) => <AntDesign name="plus" {...props} />,
 
 };
 

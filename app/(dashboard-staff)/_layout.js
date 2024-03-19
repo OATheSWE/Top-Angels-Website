@@ -1,10 +1,10 @@
+import { StaffNav } from "../../src/components";
 import { Slot } from "expo-router";
-import { DashBoardNav } from "../../src/components";
 
 const App = () => {
   return (
     <div>
-      <DashBoardNav />
+      <StaffNav />
       <Slot />
     </div>
   );

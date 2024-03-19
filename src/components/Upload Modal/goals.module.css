@@ -1,0 +1,35 @@
+.label {
+  font-size: 18px;
+}
+
+.inner {
+  left: 0;
+  margin: 0;
+}
+
+.content {
+  padding: 10px 20px 30px 20px;
+  margin: 0;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+}
+
+.input {
+  border-radius: 20px;
+  border: none;
+  background: #86b6f6;
+  padding: 20px;
+  color: white;
+
+  &::placeholder {
+    color: white;
+  }
+}
+
+
